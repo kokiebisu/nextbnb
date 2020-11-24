@@ -527,3 +527,33 @@ export const Warning = (props) => {
     </svg>
   );
 };
+
+export const Home = () => {
+  return (
+    <img
+      style={{ width: 40 }}
+      src='https://a0.muscache.com/pictures/b0fe7d1b-2c8b-48ba-9310-5cbeb3f25a32.jpg'
+      alt='home'
+    />
+  );
+};
+
+export const Global = () => {
+  return (
+    <img
+      style={{ width: 40 }}
+      src='https://a0.muscache.com/pictures/eba31c9e-9c99-4a7e-bb58-bc1dd3c58dd5.jpg'
+      alt='global'
+    />
+  );
+};
+
+export const Lightening = () => {
+  return (
+    <img
+      style={{ width: 40 }}
+      src='https://a0.muscache.com/pictures/70888c58-8a67-4b03-9b07-3beed0f97275.jpg'
+      alt='lightening'
+    />
+  );
+};

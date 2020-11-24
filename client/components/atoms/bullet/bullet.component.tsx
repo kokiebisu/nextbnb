@@ -10,6 +10,7 @@ import { ExperienceBullet } from './bullet.experience';
 import { HelpBullet } from './bullet.help';
 import { HostBullet } from './bullet.host';
 import { KnowBullet } from './bullet.know';
+import { OnlineHostBullet } from './bullet.onlinehost';
 import { PriorityBullet } from './bullet.priority';
 import { RatingBullet } from './bullet.rating';
 import { RequiredBullet } from './bullet.required';
@@ -42,6 +43,7 @@ export const Bullet: React.FC<BulletProps> = ({
     priority: <PriorityBullet {...props} />,
     help: <HelpBullet {...props} />,
     required: <RequiredBullet {...props} />,
+    onlinehost: <OnlineHostBullet {...props} />,
   };
 
   return (

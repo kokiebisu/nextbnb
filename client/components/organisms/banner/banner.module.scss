@@ -28,3 +28,39 @@
     }
   }
 }
+
+.w {
+  &__onlinehost {
+    &--explanation {
+      width: 550px;
+    }
+    &--subtitle {
+      width: 600px;
+    }
+  }
+}
+
+.text {
+  &__onlinehost {
+    &--explanation {
+      text-align: center;
+    }
+    &--subtitle {
+      text-align: center;
+    }
+  }
+}
+
+.display {
+  &__onlinehost {
+    &--points {
+      display: block;
+
+      @media screen and (min-width: 728px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+      }
+    }
+  }
+}

@@ -60,6 +60,10 @@ export interface RequiredBulletProps {
   message?: string;
 }
 
+export interface OnlineHostBulletProps {
+  bullet?: string;
+}
+
 export interface BulletProps {
   extendsTo?: string;
   type: string;

@@ -28,6 +28,7 @@ import { AllSection } from './section.all';
 import { PrioritySection } from './section.priority';
 import { HelpSection } from './section.help';
 import { ReadySection } from './section.ready';
+import { WorksSection } from './section.works';
 
 interface mapProps {
   [key: string]: JSX.Element;
@@ -68,6 +69,7 @@ export const Section: React.FC<SectionProps> = ({
     priority: <PrioritySection {...props} />,
     help: <HelpSection {...props} />,
     ready: <ReadySection {...props} />,
+    works: <WorksSection {...props} />,
   };
   return <div className={extendsTo}>{types[type]}</div>;
 };

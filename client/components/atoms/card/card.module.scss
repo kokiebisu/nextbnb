@@ -32,6 +32,14 @@
       }
     }
   }
+
+  &__works {
+    width: 100%;
+
+    @media screen and (min-width: 728px) {
+      width: 50%;
+    }
+  }
 }
 
 .h {
@@ -63,6 +71,14 @@
   }
 
   &__online {
+  }
+
+  &__works {
+    display: block;
+    @media screen and (min-width: 728px) {
+      display: flex;
+      align-items: center;
+    }
   }
 }
 

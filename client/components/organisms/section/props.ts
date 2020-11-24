@@ -144,6 +144,8 @@ export interface HelpSectionProps {}
 
 export interface ReadySectionProps {}
 
+export interface WorksSectionProps {}
+
 export interface SectionProps {
   extendsTo?: string;
   type: string;

@@ -43,3 +43,8 @@ export const experiences = HeaderTemplate.bind({});
 experiences.args = {
   type: 'experiences',
 };
+
+export const onlineHost = HeaderTemplate.bind({});
+onlineHost.args = {
+  type: 'onlinehost',
+};

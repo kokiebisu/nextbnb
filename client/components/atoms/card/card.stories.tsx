@@ -173,3 +173,16 @@ export const again = CardTemplate.bind({});
 again.args = {
   type: 'again',
 };
+
+export const works = CardTemplate.bind({});
+works.args = {
+  type: 'works',
+};
+works.argTypes = {
+  work: {
+    control: {
+      type: 'select',
+      options: ['design', 'share', 'submit', 'setup'],
+    },
+  },
+};

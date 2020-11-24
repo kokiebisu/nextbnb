@@ -15,6 +15,8 @@ export interface HomesHeaderProps {
 
 export interface ExperiencesHeaderProps {}
 
+export interface OnlineHostHeaderProps {}
+
 export interface HeaderProps {
   extendsTo?: string;
   type: string;

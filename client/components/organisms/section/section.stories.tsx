@@ -196,3 +196,8 @@ export const ready = SectionTemplate.bind({});
 ready.args = {
   type: 'ready',
 };
+
+export const works = SectionTemplate.bind({});
+works.args = {
+  type: 'works',
+};

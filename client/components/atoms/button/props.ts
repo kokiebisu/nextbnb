@@ -74,6 +74,7 @@ export interface UnderlineButtonProps {
   onPress?: () => void;
   title?: string;
   font?: number;
+  color?: string;
 }
 
 export interface CloseButtonProps {

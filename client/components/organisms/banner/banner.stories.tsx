@@ -33,3 +33,8 @@ export const landing = BannerTemplate.bind({});
 landing.args = {
   type: 'landing',
 };
+
+export const onlineHost = BannerTemplate.bind({});
+onlineHost.args = {
+  type: 'onlinehost',
+};

@@ -137,3 +137,16 @@ export const required = BulletTemplate.bind({});
 required.args = {
   type: 'required',
 };
+
+export const onlinehost = BulletTemplate.bind({});
+onlinehost.args = {
+  type: 'onlinehost',
+};
+onlinehost.argTypes = {
+  bullet: {
+    control: {
+      type: 'select',
+      options: ['home', 'global', 'business'],
+    },
+  },
+};

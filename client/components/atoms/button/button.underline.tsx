@@ -21,10 +21,11 @@ export const UnderlineButton: React.FC<UnderlineButtonProps> = ({
   onPress = () => alert('Underline button pressed!'),
   title = 'Title here',
   font = 14,
+  color = 'black',
 }) => {
   return (
     <div
-      style={{ fontSize: font, cursor: 'pointer' }}
+      style={{ color, fontSize: font, cursor: 'pointer' }}
       onClick={onPress}
       className={[
         layout['inline-block'],
