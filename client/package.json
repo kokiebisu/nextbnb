@@ -13,6 +13,7 @@
     "chromatic": "npx chromatic --project-token e017nqnn22h --exit-zero-on-changes"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "formik": "^2.2.2",
     "framer-motion": "^2.7.5",
     "next": "9.5.4",

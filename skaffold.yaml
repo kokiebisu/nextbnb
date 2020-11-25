@@ -13,14 +13,15 @@ build:
       docker:
         dockerfile: Dockerfile
       sync:
-        manual:
-          - src: 'src/**/*.ts'
-            dest: .
+        infer:
+          - '**/*.ts'
+          - '**/*.tsx'
+          - '**/*.css'
     - image: kokiebisu/nextbnb-client
       context: client
       docker:
         dockerfile: Dockerfile
-      # sync:
-      #   manual:
-      #     - src: '*'
-      #       dest: .
+      sync:
+        manual:
+          - src: 'components/**/*.(ts|tsx)$'
+            dest: .

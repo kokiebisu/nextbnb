@@ -1,12 +1,12 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { BadRequestError } from '../errors/bad_request';
-import { DatabaseConnectionError } from '../errors/database';
 import { User } from '../models/user';
 import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
 router.post('/api/users/signup', async (req: Request, res: Response) => {
+  console.log('req body', req.body);
   const { email, password } = req.body;
 
   const existingUser = await User.findOne({ email });

@@ -34,12 +34,16 @@ import { validateSignup as validate } from '../../../helper/auth';
  * Hooks
  */
 import { useLockBodyScroll } from '../../../hooks/useLockBodyScroll';
+import { useFetch } from 'hooks/useFetch';
+import Router from 'next/router';
+import { useToggleDispatch } from '../../../context/toggle';
 
 /**
  * Renders the signup template component
  */
 export const SignupTemplate: React.FC<SignupTemplateProps> = () => {
   useLockBodyScroll();
+  const toggleDispatch = useToggleDispatch();
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -52,18 +56,18 @@ export const SignupTemplate: React.FC<SignupTemplateProps> = () => {
       password: '',
     },
     validate,
-    onSubmit: (values) => {
-      // setLoading(true);
-      const signup = async () => {
-        const response = await fetch('http://localhost:8080/api/users/signup', {
-          method: 'POST',
-          body: JSON.stringify(values),
-        });
-        const data = await response.json();
-        console.log('data from signup', data);
-      };
-      signup();
-      // formik.resetForm();
+    onSubmit: async (values) => {
+      const doFetch = useFetch({
+        url: '/api/users/signup',
+        method: 'post',
+        body: values,
+        onSuccess() {
+          formik.resetForm();
+          toggleDispatch({ type: 'toggle_auth' });
+        },
+      });
+
+      await doFetch();
     },
   });
 

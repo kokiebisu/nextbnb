@@ -98,15 +98,27 @@ export const BirthdateInput: React.FC<BirthdateInputProps> = ({
           ].join(' ')} ${styleInput(errors, fieldActive)}`}>
           {dateType === 'year' &&
             new Array(99).fill(null).map((_, index) => {
-              return <option value={index + 1920}>{index + 1920}</option>;
+              return (
+                <option key={index} value={index + 1920}>
+                  {index + 1920}
+                </option>
+              );
             })}
           {dateType === 'month' &&
             new Array(12).fill(null).map((_, index) => {
-              return <option value={index + 1}>{index + 1}</option>;
+              return (
+                <option key={index} value={index + 1}>
+                  {index + 1}
+                </option>
+              );
             })}
           {dateType === 'day' &&
             new Array(31).fill(null).map((_, index) => {
-              return <option value={index + 1}>{index + 1}</option>;
+              return (
+                <option key={index} value={index + 1}>
+                  {index + 1}
+                </option>
+              );
             })}
         </select>
         <label
