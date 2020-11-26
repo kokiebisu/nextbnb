@@ -60,6 +60,16 @@ export const validateLogin = (values) => {
   return errors;
 };
 
+export const validateExists = (values) => {
+  const errors: any = {};
+
+  if (!values.password) {
+    errors.password = 'Password is required';
+  }
+
+  return errors;
+};
+
 export const validateForgotPassword = (values) => {
   const errors: any = {};
   if (!values.email) {

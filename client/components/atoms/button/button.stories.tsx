@@ -69,6 +69,12 @@ export const menu = ButtonTemplate.bind({});
 menu.args = {
   type: 'menu',
 };
+menu.argTypes = {
+  ...disableTitle,
+  user: {
+    control: 'boolean',
+  },
+};
 
 export const privacy = ButtonTemplate.bind({});
 privacy.args = {
@@ -105,7 +111,6 @@ export const primary = ButtonTemplate.bind({});
 primary.args = {
   type: 'primary',
 };
-
 primary.decorators = [
   (Story) => (
     <div style={{ width: 300 }}>
@@ -113,6 +118,12 @@ primary.decorators = [
     </div>
   ),
 ];
+primary.argTypes = {
+  ...disableInverse,
+  loading: {
+    control: 'boolean',
+  },
+};
 
 export const searchbar = ButtonTemplate.bind({});
 searchbar.args = {
@@ -172,15 +183,11 @@ modal.argTypes = {
 globe.argTypes = {
   ...disableTitle,
 };
-menu.argTypes = {
-  ...disableTitle,
-};
+
 banner.argTypes = {
   ...disableInverse,
 };
-primary.argTypes = {
-  ...disableInverse,
-};
+
 searchbar.argTypes = {
   ...disableInverse,
 };

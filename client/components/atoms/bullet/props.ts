@@ -1,5 +1,5 @@
 export interface CharacteristicBulletProps {
-  characteristicType?: string;
+  characteristic?: string;
   time?: number;
   languages?: string[];
   devices?: string[];

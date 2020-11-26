@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 /**
  * Styles
@@ -22,13 +23,19 @@ import { Header } from '../../../components/organisms/header/header.component';
 import { Button } from '../../../components/atoms/button/button.component';
 
 /**
+ * Hooks
+ */
+import { useHandleScroll } from '../../../hooks/useHandleScroll';
+
+/**
  * Renders the banner section
  */
-export const LandingBanner: React.FC<LandingBannerProps> = () => {
+export const LandingBanner: React.FC<LandingBannerProps> = ({ data }) => {
+  const scrollPosition = useHandleScroll();
   return (
     <div className={index['banner']}>
       <div className={[layout['all-sides']].join(' ')}>
-        <div className={index['banner__background--picture']} style={{}}>
+        <div className={index['banner__background--picture']}>
           <picture>
             <source
               srcSet='/img/background1200.webp'
@@ -56,7 +63,27 @@ export const LandingBanner: React.FC<LandingBannerProps> = () => {
               className={[space['p-t--6'], layout['container--spread']].join(
                 ' '
               )}>
-              <Header type='transparent' />
+              {scrollPosition > 56 ? (
+                <motion.div
+                  exit={{ opacity: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  style={{
+                    left: 0,
+                    right: 0,
+                    position: 'fixed',
+                    top: 0,
+                    zIndex: 99999,
+                    width: '100%',
+                  }}>
+                  <Header spread type='white' data={data} />
+                </motion.div>
+              ) : null}
+              {scrollPosition > 56 ? (
+                <div style={{ padding: '38px 0' }}></div>
+              ) : (
+                <Header type='transparent' data={data} />
+              )}
             </div>
             <div className={[color['c--white__0']].join(' ')}></div>
             <div

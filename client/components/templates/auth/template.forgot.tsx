@@ -23,7 +23,7 @@ import { Bullet } from '../../atoms/bullet/bullet.component';
 /**
  * Props
  */
-import { ForgotPasswordTemplateProps } from '../props';
+import { ForgotPasswordTemplateProps } from './props';
 
 /**
  * Helper

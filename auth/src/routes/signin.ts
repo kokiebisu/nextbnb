@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { BadRequestError } from '../errors/bad_request';
+import { BadRequestError } from '@doitsimple/shared';
 import { User } from '../models/user';
 import { Password } from '../services/password';
 import jwt from 'jsonwebtoken';

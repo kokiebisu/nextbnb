@@ -29,14 +29,22 @@ import { useToggleDispatch } from '../../../context/toggle';
  * Renders the menu button components
  * @param {boolean} inverse - Whether if the button takes the inverse styling or not
  */
-export const MenuButton: React.FC<MenuButtonProps> = ({ inverse = false }) => {
+export const MenuButton: React.FC<MenuButtonProps> = ({
+  inverse = false,
+  authenticated = false,
+  data = {
+    imgUrl:
+      'https://images.unsplash.com/photo-1562124638-724e13052daf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTV8fGZhY2V8ZW58MHwyfDB8&auto=format&fit=crop&w=500&q=60',
+  },
+}) => {
   let toggleDispatch = useToggleDispatch();
   const triggerModal = () => {
     toggleDispatch({ type: 'toggle_menu' });
   };
+
   return (
     <motion.button
-      whileTap={{ scale: 0.98 }}
+      whileTap={{ scale: 0.95 }}
       data-testid='button'
       className={`${[
         layout['items-center'],
@@ -53,11 +61,19 @@ export const MenuButton: React.FC<MenuButtonProps> = ({ inverse = false }) => {
           : [color['b--white__2']].join(' ')
       }`}
       onClick={triggerModal}>
-      <div className={space['m-r--8']}>
+      <div className={[space['m-r--12'], space['m-l--4']].join(' ')}>
         <Bars fill='black' width={12} />
       </div>
       <div>
-        <Avatar width={30} fill='gray' />
+        {authenticated && data ? (
+          <img
+            className={[shape['br--circle']].join(' ')}
+            style={{ width: 30, verticalAlign: 'bottom' }}
+            src={data.imgUrl}
+          />
+        ) : (
+          <Avatar width={30} fill='gray' />
+        )}
       </div>
     </motion.button>
   );

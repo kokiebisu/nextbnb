@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stay-mongo-deploy
+spec:
+  replicas:
+  selector:
+    matchLabels:
+      app: stay-mongo
+  template:
+    metadata:
+      labels:
+        app: stay-mongo
+    spec:
+      containers:
+        - name: stay-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stay-mongo-service
+spec:
+  selector:
+    app: stay-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

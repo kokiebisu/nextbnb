@@ -46,6 +46,8 @@ export const AuthModal: React.FC<RegisterModalProps> = () => {
         return <Template type='auth' />;
       case 'forgot_password':
         return <Template type='forgotpassword' />;
+      case 'exists':
+        return <Template type='exists' />;
       default:
         return;
     }

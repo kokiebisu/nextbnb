@@ -6,6 +6,7 @@ import { TemplateProps } from './props';
 import { CategoryTemplate } from './homes/template.category';
 import { NearbyTemplate } from './homes/template.nearby';
 import { ForgotPasswordTemplate } from './auth/template.forgot';
+import { ExistsTemplate } from './auth/template.exists';
 
 export const Template: React.FC<TemplateProps> = ({
   type = 'nearby',
@@ -20,6 +21,7 @@ export const Template: React.FC<TemplateProps> = ({
     signup: <SignupTemplate />,
     auth: <AuthTemplate />,
     forgotpassword: <ForgotPasswordTemplate />,
+    exists: <ExistsTemplate />,
   };
   return types[type];
 };

@@ -2,6 +2,7 @@ export interface PrivacyModalProps {}
 
 export interface MenuModalProps {
   refProp?: any;
+  authenticated?: boolean;
 }
 
 export interface RegisterModalProps {}

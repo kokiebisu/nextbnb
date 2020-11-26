@@ -1,4 +1,5 @@
 import React from 'react';
+import { CovidBar } from './bar.covid';
 
 /**
  * Components
@@ -17,6 +18,7 @@ import { BarProps } from './props';
 export const Bar: React.FC<BarProps> = ({ type, ...props }) => {
   const types = {
     paginate: <PaginateBar {...props} />,
+    covid: <CovidBar {...props} />,
   };
   return types[type];
 };

@@ -1,7 +1,5 @@
 import express, { Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
-import { currentUser } from '../middlewares/current_user';
-import { requireAuth } from '../middlewares/require_auth';
+import { currentUser, requireAuth } from '@doitsimple/shared';
 const router = express.Router();
 
 router.get(

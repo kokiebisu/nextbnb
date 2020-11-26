@@ -6,12 +6,17 @@ import { Bar } from './bar.component';
 export default {
   title: 'Design System/Organisms/Bar',
   component: Bar,
-  argTypes: { onPress: { action: 'clicked' } },
+  argTypes: { type: { control: { disable: true } } },
 } as Meta;
 
-const BarTemplate: Story<BarProps> = (args) => <Bar {...args} />;
+const BarStories: Story<BarProps> = (args) => <Bar {...args} />;
 
-export const paginate = BarTemplate.bind({});
+export const paginate = BarStories.bind({});
 paginate.args = {
   type: 'paginate',
+};
+
+export const covid = BarStories.bind({});
+covid.args = {
+  type: 'covid',
 };

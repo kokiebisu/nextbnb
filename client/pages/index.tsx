@@ -13,7 +13,6 @@ import layout from '../styles/layout.module.scss';
 import space from '../styles/space.module.scss';
 import color from '../styles/color.module.scss';
 import shape from '../styles/shape.module.scss';
-import font from '../styles/font.module.scss';
 
 /* data */
 import { nearby } from '../data/stays';
@@ -24,39 +23,21 @@ import { Layout } from '../layout/layout.component';
 /* components */
 import { Animation } from '../components/animation/animation.component';
 import { Modal } from '../components/organisms/modal/modal.component';
-import { Header } from '../components/organisms/header/header.component';
 import { Section } from '../components/organisms/section/section.component';
 import { Footer } from '../components/organisms/footer/footer.component';
 import { MenuBar } from '../components/organisms/menubar/menubar.component';
 import { Banner } from '../components/organisms/banner/banner.component';
+import { Bar } from 'components/organisms/bar/bar.component';
 
 /* hooks */
 import { useHandleScroll } from '../hooks/useHandleScroll';
 import { useHandleDocumentResize } from '../hooks/useHandleDocumentResize';
 import { useTimeout } from '../hooks/useTimeout';
 
-/**
- * Renders /
- */
-const CovidNotice = () => {
-  return (
-    <aside
-      className={[
-        font['size--14'],
-        color['bg--white__1'],
-        layout['text-center'],
-        space['p-v--20'],
-        space['p-h--24'],
-        layout['z--9999'],
-      ].join(' ')}>
-      <a href=''>
-        <u>Get the latest on our COVID-19 response</u>
-      </a>
-    </aside>
-  );
-};
+/* helper */
+import { APIClient } from '../api/client';
 
-const LandingPage: () => string | JSX.Element = () => {
+const LandingPage = ({ currentUser }) => {
   const loading = useTimeout(3000);
   const toggleState = useToggleState();
   const scrollPosition = useHandleScroll();
@@ -67,8 +48,10 @@ const LandingPage: () => string | JSX.Element = () => {
       style={{ overflowX: 'hidden' }}
       className={[layout['relative'], shape['min-h--fullv']].join(' ')}>
       <div>
-        <CovidNotice />
-        <Banner type='landing' />
+        <div>
+          <Bar type='covid' />
+        </div>
+        <Banner type='landing' data={currentUser || null} />
         {loading ? (
           <>
             <Layout type='section' sectionType='landing' spread>
@@ -113,7 +96,7 @@ const LandingPage: () => string | JSX.Element = () => {
         ) : (
           <div
             className={[
-              space['m-t--22'],
+              space['m-v--22'],
               layout['flex'],
               layout['items-center'],
               layout['justify-center'],
@@ -133,22 +116,6 @@ const LandingPage: () => string | JSX.Element = () => {
           type='privacy'
           criteria={toggleState.privacy}
         />
-        <AnimatePresence>
-          {scrollPosition > 56 && (
-            <motion.div
-              exit={{ opacity: 0 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              style={{
-                position: 'fixed',
-                top: 0,
-                zIndex: 99999,
-                width: '100%',
-              }}>
-              <Header spread type='white' />
-            </motion.div>
-          )}
-        </AnimatePresence>
         <AnimatePresence>
           {scrollPosition < pageHeight && (
             <motion.div
@@ -187,6 +154,17 @@ const LandingPage: () => string | JSX.Element = () => {
       </div>
     </div>
   );
+};
+
+LandingPage.getInitialProps = async (context) => {
+  const client = APIClient(context);
+
+  try {
+    const { data } = await client.get('/api/users/currentuser');
+    return data;
+  } catch (err) {
+    return {};
+  }
 };
 
 export default LandingPage;

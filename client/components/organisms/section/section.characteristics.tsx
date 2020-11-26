@@ -278,26 +278,26 @@ export const CharacteristicsSection: React.FC<CharacteristicsSectionProps> = ({
             <Bullet
               extendsTo={[space['m-t--24']].join(' ')}
               type='characteristic'
-              characteristicType='time'
+              characteristic='time'
               time={characteristics['time']}
             />
             <Bullet
               extendsTo={[space['m-t--24']].join(' ')}
               type='characteristic'
-              characteristicType='devices'
+              characteristic='devices'
               devices={characteristics['devices'].join(', ')}
             />
             <Bullet
               extendsTo={[space['m-t--24']].join(' ')}
               type='characteristic'
-              characteristicType='people'
+              characteristic='people'
               people={characteristics['people']}
               private={characteristics['group']}
             />
             <Bullet
               extendsTo={[space['m-t--24']].join(' ')}
               type='characteristic'
-              characteristicType='language'
+              characteristic='language'
               languages={characteristics['languages'].join(', ')}
             />
           </div>

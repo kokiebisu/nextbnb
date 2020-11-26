@@ -16,6 +16,11 @@ import space from '../../../styles/space.module.scss';
 import { PrimaryButtonProps } from './props';
 
 /**
+ * Components
+ */
+import { Animation } from '../../animation/animation.component';
+
+/**
  * Renders the primary button component
  * @param {string} title - Title of the button
  * @param {function} onPress - Action being taken when the button is clicked
@@ -28,6 +33,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   size = 'md',
   spread = false,
   fill,
+  loading = false,
 }) => {
   const components = {
     sm: (
@@ -47,7 +53,20 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
           !fill && [color['bg--primary']].join(' ')
         }`}
         onClick={onPress}>
-        <h4>{title}</h4>
+        {loading ? (
+          <div>
+            <Animation
+              extendsTo={[
+                layout['flex'],
+                layout['items-center'],
+                layout['justify-center'],
+              ].join(' ')}
+              type='loading'
+            />
+          </div>
+        ) : (
+          title
+        )}
       </motion.button>
     ),
     md: (
@@ -67,7 +86,20 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
           !fill && [color['bg--primary']].join(' ')
         }`}
         onClick={onPress}>
-        {title}
+        {loading ? (
+          <div>
+            <Animation
+              extendsTo={[
+                layout['flex'],
+                layout['items-center'],
+                layout['justify-center'],
+              ].join(' ')}
+              type='loading'
+            />
+          </div>
+        ) : (
+          title
+        )}
       </motion.button>
     ),
     lg: (
@@ -88,7 +120,20 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
           !fill && [color['bg--primary']].join(' ')
         }`}
         onClick={onPress}>
-        {title}
+        {loading ? (
+          <div>
+            <Animation
+              extendsTo={[
+                layout['flex'],
+                layout['items-center'],
+                layout['justify-center'],
+              ].join(' ')}
+              type='loading'
+            />
+          </div>
+        ) : (
+          title
+        )}
       </motion.button>
     ),
   };

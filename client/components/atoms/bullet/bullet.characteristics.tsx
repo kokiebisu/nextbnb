@@ -35,7 +35,7 @@ import * as Helper from '../../../helper/time';
 
 /**
  * Renders the characteristic bullet
- * @param {string} characteristicType - Type of characteristics
+ * @param {string} characteristic - Type of characteristics
  * @param {number} time - Time it takes for the experience
  * @param {string[]} devices - Devices allowed for the experience
  * @param {number} people - Number of people that can join
@@ -43,14 +43,14 @@ import * as Helper from '../../../helper/time';
  * @param {string[]} languages - Languages the host can speak
  */
 export const CharacteristicBullet: React.FC<CharacteristicBulletProps> = ({
-  characteristicType = 'house',
+  characteristic = 'house',
   time = 60,
   devices = ['computer', 'smartphone'],
   people = 10,
   group = 100,
   languages = ['English', 'Chinese'],
 }) => {
-  const icons = {
+  const characteristics = {
     house: {
       icon: <House width={24} />,
       title: 'Entire home',
@@ -105,10 +105,10 @@ export const CharacteristicBullet: React.FC<CharacteristicBulletProps> = ({
         space['p-r--8'],
       ].join(' ')}>
       <div className={[space['m-r--14']].join(' ')}>
-        {icons[characteristicType].icon}
+        {characteristics[characteristic].icon}
       </div>
       <div>
-        {icons[characteristicType].description ? (
+        {characteristics[characteristic].description ? (
           <h3
             style={{ letterSpacing: 0.3 }}
             className={[
@@ -117,19 +117,19 @@ export const CharacteristicBullet: React.FC<CharacteristicBulletProps> = ({
               font['size--16'],
               font['weight--500'],
             ].join(' ')}>
-            {icons[characteristicType].title}
+            {characteristics[characteristic].title}
           </h3>
         ) : (
-          <p>{icons[characteristicType].title}</p>
+          <p>{characteristics[characteristic].title}</p>
         )}
-        {icons[characteristicType].description && (
+        {characteristics[characteristic].description && (
           <p
             className={[
               color['c--gray__1'],
               font['weight--100'],
               font['size--14'],
             ].join(' ')}>
-            {icons[characteristicType].description}
+            {characteristics[characteristic].description}
           </p>
         )}
       </div>

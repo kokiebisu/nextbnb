@@ -1,0 +1,34 @@
+{
+  "name": "stay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --poll src/index.ts",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@doitsimple/shared": "^1.0.6",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jest": "^26.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb-memory-server": "^6.9.2",
+    "mongoose": "^5.10.15",
+    "supertest": "^6.0.1",
+    "ts-jest": "^26.4.4",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/cookie-session": "^2.0.41",
+    "@types/jest": "^26.0.15",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.10.1",
+    "@types/supertest": "^2.0.10"
+  }
+}

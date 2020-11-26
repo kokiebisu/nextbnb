@@ -1,7 +1,7 @@
 .circle {
   &__wrapper {
-    width: 2rem;
-    height: 2rem;
+    width: 36px;
+    height: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -9,9 +9,9 @@
 
   &__content {
     display: block;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 0.25rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
   }
 
   &__1 {

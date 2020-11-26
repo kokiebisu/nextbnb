@@ -30,7 +30,7 @@ import { Button } from '../../atoms/button/button.component';
 /**
  * Props
  */
-import { AuthTemplateProps } from '../props';
+import { AuthTemplateProps } from './props';
 
 /**
  *

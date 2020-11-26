@@ -1,7 +1,10 @@
-export interface TransparentHeaderProps {}
+export interface TransparentHeaderProps {
+  data?: any;
+}
 
 export interface WhiteHeaderProps {
   spread?: boolean;
+  data?: any;
 }
 
 export interface DetailsHeaderProps {

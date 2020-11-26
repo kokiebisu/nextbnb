@@ -28,6 +28,11 @@ menu.args = {
   type: 'menu',
   dispatchType: 'toggle_menu',
 };
+menu.argTypes = {
+  authenticated: {
+    control: 'boolean',
+  },
+};
 
 export const auth = ModalTemplate.bind({});
 auth.args = {

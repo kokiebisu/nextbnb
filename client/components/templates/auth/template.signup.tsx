@@ -1,49 +1,48 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
+import Router from 'next/router';
 
-/**
- * Styles
- */
+/** Styles */
 import space from '../../../styles/space.module.scss';
 import font from '../../../styles/font.module.scss';
 import layout from '../../../styles/layout.module.scss';
 import color from '../../../styles/color.module.scss';
 
-/**
- * Components
- */
+/** Components */
 import { Input } from '../../atoms/input/input.component';
 import { Button } from '../../atoms/button/button.component';
 import { Bullet } from '../../atoms/bullet/bullet.component';
-/**
- * Props
- */
-import { SignupTemplateProps } from '../props';
 
-/**
- * Animations
- */
-import { Animation } from '../../animation/animation.component';
+/** Props */
+import { SignupTemplateProps } from './props';
 
-/**
- * Helper
- */
+/** Helper */
 import { validateSignup as validate } from '../../../helper/auth';
 
-/**
- * Hooks
- */
+/** Hooks */
 import { useLockBodyScroll } from '../../../hooks/useLockBodyScroll';
+<<<<<<< HEAD
 import { useFetch } from 'hooks/useFetch';
 import Router from 'next/router';
 import { useToggleDispatch } from '../../../context/toggle';
+=======
+import { useFetch } from '../../../hooks/useFetch';
+import { useToggleDispatch } from '../../../context/toggle';
+
+/** Context */
+import { useAuthDispatch } from '../../../context/auth';
+>>>>>>> 96302371cafdc98ac9d5db1cff666141ee4d6814
 
 /**
  * Renders the signup template component
  */
 export const SignupTemplate: React.FC<SignupTemplateProps> = () => {
   useLockBodyScroll();
+<<<<<<< HEAD
   const toggleDispatch = useToggleDispatch();
+=======
+  const authDispatch = useAuthDispatch();
+>>>>>>> 96302371cafdc98ac9d5db1cff666141ee4d6814
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -61,12 +60,25 @@ export const SignupTemplate: React.FC<SignupTemplateProps> = () => {
         url: '/api/users/signup',
         method: 'post',
         body: values,
+<<<<<<< HEAD
         onSuccess() {
           formik.resetForm();
           toggleDispatch({ type: 'toggle_auth' });
         },
       });
 
+=======
+        triggerLoading: (state) => {
+          setLoading(state);
+        },
+        onSuccess: () => {
+          Router.reload();
+        },
+        onFail: () => {
+          authDispatch({ type: 'exists' });
+        },
+      });
+>>>>>>> 96302371cafdc98ac9d5db1cff666141ee4d6814
       await doFetch();
     },
   });
@@ -258,23 +270,7 @@ export const SignupTemplate: React.FC<SignupTemplateProps> = () => {
           </p>
         </div>
         <div className={[space['m-t--16']].join(' ')}>
-          <Button
-            type='primary'
-            title={
-              loading ? (
-                <div
-                  className={[
-                    layout['flex'],
-                    layout['items-center'],
-                    layout['justify-center'],
-                  ].join(' ')}>
-                  <Animation type='loading' />
-                </div>
-              ) : (
-                <h4>Agree and continue</h4>
-              )
-            }
-          />
+          <Button type='primary' title='Agree and continue' loading={loading} />
         </div>
       </div>
     </form>
