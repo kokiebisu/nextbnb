@@ -3,7 +3,7 @@ name: deploy-manifests
 on:
   push:
     branches:
-      - master
+      - actions
     paths:
       - "infrastructure/**"
 
