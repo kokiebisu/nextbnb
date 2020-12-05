@@ -5,6 +5,7 @@ import layout from "../../../styles/layout.module.scss";
 import space from "../../../styles/space.module.scss";
 import shape from "../../../styles/shape.module.scss";
 import color from "../../../styles/color.module.scss";
+import animation from "../../../styles/animation.module.scss";
 
 /** Vectors */
 import { Avatar, Bars } from "../../../public/svg/original";
@@ -27,6 +28,7 @@ export const MenuButton: React.FC<MenuButtonProps> = ({
   return (
     <div
       className={`${[
+        shape["br--30"],
         layout["flex"],
         layout["items-center"],
         space["p-t--6"],

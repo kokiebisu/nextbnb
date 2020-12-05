@@ -65,13 +65,13 @@ export const TransparentHeader: React.FC<TransparentHeaderProps> = ({
           >
             <Button {...host.args} inverse animate />
           </div>
-          <div className={[space["m-h--4"]].join(" ")}>
+          {/* <div className={[space["m-h--4"]].join(" ")}>
             <Button
               {...globe.args}
               inverse
               onPress={() => toggleDispatch({ type: "toggle_language" })}
             />
-          </div>
+          </div> */}
           <div className={[space["m-l--4"]].join(" ")}>
             <Button
               {...menu.args}

@@ -88,12 +88,12 @@ export const WhiteHeader: React.FC<WhiteHeaderProps> = ({
             >
               <Button {...host.args} animate />
             </div>
-            <div className={[space["m-h--4"]].join(" ")}>
+            {/* <div className={[space["m-h--4"]].join(" ")}>
               <Button
                 {...globe.args}
                 onPress={() => toggleDispatch({ type: "toggle_language" })}
               />
-            </div>
+            </div> */}
             <div className={[space["m-l--4"]].join(" ")}>
               <Button
                 {...menu.args}

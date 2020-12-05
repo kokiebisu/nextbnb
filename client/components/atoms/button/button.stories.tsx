@@ -79,7 +79,11 @@ host.args = {
 export const menu = ButtonTemplate.bind({});
 menu.args = {
   type: "menu",
-  extendsTo: [shape["br--30"], animation["hover-shadow--lg"]].join(" "),
+  extendsTo: [
+    shape["br--30"],
+    color["bg--transparent"],
+    animation["hover-shadow--lg"],
+  ].join(" "),
 };
 menu.argTypes = {
   ...disableTitle,
